@@ -41,7 +41,6 @@ size_t text_fifo_get_next_string_size(text_fifo *fifo) {
     uint32_t i = 0;
     uint32_t pos = fifo->tail;
     while (pos != fifo->head) {
-        printf("fifo content: %c\n", fifo->buffer[pos]);
         if (fifo->buffer[pos] == 0) return i+1; 
         i += 1;
         pos = (pos + 1) % fifo->size;

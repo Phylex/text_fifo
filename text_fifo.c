@@ -83,6 +83,17 @@ size_t text_fifo_push_string(text_fifo *fifo, char *text_buffer) {
     return count;
 }
 
+size_t text_fifo_push_n(text_fifo *fifo, char *text_buffer, size_t buf_len) { 
+    size_t count = 0;
+    size_t push = 0;
+    for (size_t i = 0; i < buf_len; i++){
+        push = text_fifo_push(fifo, text_buffer[i]);
+        if (push == 0) break;
+        count += push;
+    }
+    return count;
+}
+
 size_t text_fifo_push_n_string(text_fifo *fifo, char *text_buffer, size_t buf_len) { 
     size_t count = 0;
     size_t push = 0;

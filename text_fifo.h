@@ -27,6 +27,11 @@ typedef struct text_fifo {
 // the number of stored strings
 uint8_t text_fifo_push(text_fifo *fifo, char elem);
 
+// push but_len chars onto the text fifo, as long as there is space 
+size_t text_fifo_push_n(text_fifo *fifo, char *text_buffer, size_t buf_len);
+
+// Push at most n chars onto the fifo, stop pushing, when the end of a string is
+// encountered
 size_t text_fifo_push_n_string(text_fifo *fifo, char *text_buffer, size_t buf_len);
 // Push a string to the fifo
 //
